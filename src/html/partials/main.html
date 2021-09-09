@@ -1,7 +1,27 @@
-<main>
-  <section class="favorites">
-    <div class="container-favorites js_favorites"></div>
-    <p>click your series to add and to remove to Favorite List</p>
+<main class="main">
+  <form action="" class="form js_form">
+    <input
+      class="form__input js_input"
+      type="text"
+      placeholder="Ej. Chernobyl"
+    />
+    <button class="form__button js_button">Buscar</button>
+  </form>
+
+  <section class="results">
+    <ul class="results__container js_results">
+      <li>
+        <img
+          class="results__img js_image"
+          src="./assets/images/daiga-ellaby-CYIhr8kRHbo-unsplash.jpg"
+          alt=""
+        />
+        <h2 class="results__name js_name">Nombre</h2>
+      </li>
+    </ul>
+    <button>Reset</button>
   </section>
-  <div class="results js_results"></div>
+  <aside class="favorites hidden">
+    <div class="favorites__container"></div>
+  </aside>
 </main>

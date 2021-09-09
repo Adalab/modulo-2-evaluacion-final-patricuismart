@@ -1,0 +1,12 @@
+.form {
+  border: solid pink;
+  height: 10vh;
+}
+
+.results {
+  background-color: lightseagreen;
+
+  &__img {
+    width: 150px;
+  }
+}
