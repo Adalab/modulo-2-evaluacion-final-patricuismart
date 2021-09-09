@@ -1,8 +1,12 @@
 Módulo 2 Evaluación final
 
+El ejercicio consiste en desarrollar una aplicación web de búsqueda de series de TV, que nos permite
+des/marcar las series como favoritas y guardarlas en local storage.
+El ejercicio también tiene una parte de maquetación con HTML y Sass.
+
 # Plantilla de Proyecto: Adalab Web Started Kit
 
-Este Kit incluye un motor de plantillas HTML, el preprocesador SASS y un servidor local y muchas cosas más. El Kit nos ayuda a trabajar más cómodamente, nos automatiza tareas.
+El proyecto se ha construido usándo este Kit que incluye un motor de plantillas HTML, el preprocesador SASS y un servidor local y muchas cosas más. El Kit ayuda a trabajar más cómodamente y automatiza tareas.
 
 ## Instalación y Guía de inicio rápido
 
@@ -28,11 +32,7 @@ npm start
 
 Este comando:
 
-- **Abre una ventana de Chrome y muestra tu página web**, al igual que hace el plugin de VS Code Live Server (Go live).
-- También **observa** todos los ficheros que hay dentro de la carpeta `src/`, para que cada vez que modifiques un fichero **refresca tu página en Chrome**.
-- También **procesa los ficheros** HTML, SASS / CSS y JS y los **genera y guarda en la carpeta `public/`**. Por ejemplo:
-  - Convierte los ficheros SASS en CSS.
-  - Combina los diferentes ficheros de HTML y los agrupa en uno o varios ficheros HTML.
+- **Abre una ventana de Chrome y muestra tu página web**
 
 Después de ejecutar `npm start` ya puedes empezar a editar todos los ficheros que están dentro de la carpeta `src/` y programar cómodamente.
 
