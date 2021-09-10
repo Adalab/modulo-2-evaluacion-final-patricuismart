@@ -1,6 +1,7 @@
-* {
-  font-family: Roboto, 'Open Sans', 'Helvetica Neue', sans-serif;
+.main {
+  font-family: $font-main;
   border-style: none;
+  box-sizing: border-box;
 }
 .title {
   margin: 20px;
@@ -11,6 +12,7 @@
   margin: 20px;
   height: 10vh;
   width: 100%;
+  box-sizing: border-box;
 
   &__input {
     width: 350px;
@@ -22,11 +24,11 @@
   &__button {
     width: 70px;
     background-color: rgb(4, 197, 181);
-    height: 25px;
     border-radius: 5px;
     height: 35px;
     margin-left: 10px;
     color: white;
+    border-style: none;
   }
   &__button:hover {
     background-color: grey;
@@ -37,9 +39,13 @@
 .data {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  box-sizing: border-box;
   .results {
     background-color: rgb(217, 231, 243);
     width: 60%;
+    margin: 10px 20px 10px 20px;
+    border-radius: 10px;
 
     &__container {
       display: flex;
@@ -66,8 +72,12 @@
   }
 
   .favorites {
-    width: 40%;
+    margin-left: 20px;
+    width: 30%;
     border: solid rgb(174, 240, 236);
+    margin: 10px 20px 10px 20px;
+    border-radius: 10px;
+    height: 50vh;
   }
 }
 
@@ -76,7 +86,6 @@
   text-align: center;
   width: 250px;
   border: solid 5px lightskyblue;
-  color: rgb(184, 48, 48);
   margin-bottom: 15px;
   padding-top: 15px;
 }
@@ -88,4 +97,5 @@
   height: 35px;
   margin-left: 20px;
   color: white;
+  border-style: none;
 }

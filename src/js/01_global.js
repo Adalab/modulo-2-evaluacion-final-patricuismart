@@ -27,20 +27,44 @@ function handleSearch(event) {
   console.log(inputValue);
 }
 
-// PINTAR los li con id, imagen y nombre//////////////////////
+// PINTAR
+
+// FAVORITOS //////////////
+
+function isFavorite(data) {
+  const favoritesCheck = favorites.find((favorites) => {
+    return favorites.show.id === data.show.id;
+  });
+
+  if (favoritesCheck === undefined) {
+    return false;
+  } else {
+    return true;
+  }
+}
+
+// Pintarlos li con id, imagen y nombre y clase favClass//////////////////////
 
 function paintInput() {
+  //isFavorite();
+
+  //let favClass = [];
+  //   const isFav = isFavorite(data);
+  //   if (isFav) {
+  //     favClass = 'favorites';
+  //   } else {
+  //     favClass = '';
+  //   }
+
   for (const data of globalData) {
     if (data.show.image === null) {
-      resultsContainer.innerHTML += ` <li class = "results__list js_list" id = "${data.show.id}"><img src="${imageDefautl} "alt=""/><h2 class = "results__name">${data.show.name}</h2></li>`;
+      resultsContainer.innerHTML += ` <li class = "results__list js_list " id = "${data.show.id}"><img src="${imageDefautl} "alt=""/><h2 class = "results__name">${data.show.name}</h2></li>`;
     } else {
-      resultsContainer.innerHTML += ` <li class = "results__list js_list" id = "${data.show.id}"><img src="${data.show.image.medium} "alt=""/><h2 class = "results__name">${data.show.name}</h2></li>`;
+      resultsContainer.innerHTML += ` <li class = "results__list js_list " id = "${data.show.id}"><img src="${data.show.image.medium} "alt=""/><h2 class = "results__name">${data.show.name}</h2></li>`;
     }
   }
   listenListResults();
 }
-
-// FAVORITOS //////////////
 
 // Añadir clase a elemento del listado de resultados que se seleccione
 
