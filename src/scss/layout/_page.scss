@@ -1,12 +1,22 @@
 .form {
   border: solid pink;
   height: 10vh;
+  width: 100%;
 }
 
 .results {
   background-color: lightseagreen;
-
+  width: 60%;
   &__img {
     width: 150px;
   }
 }
+.favorites {
+  width: 40%;
+  border: solid blue;
+}
+
+// .reset__button {
+//   position: fixed;
+//   top: 0px;
+// }
