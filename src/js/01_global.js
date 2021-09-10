@@ -11,7 +11,7 @@ const imageDefautl =
 
 let globalData = [];
 
-//FETCH ////////////////
+//FETCH  con llamada a pintar los li////////////////
 
 function handleSearch(event) {
   event.preventDefault();
@@ -26,7 +26,7 @@ function handleSearch(event) {
   console.log(inputValue);
 }
 
-// PAINT //////////////////////
+// PINTAR los li con id, imagen y nombre//////////////////////
 
 function paintInput() {
   for (const data of globalData) {
@@ -39,20 +39,22 @@ function paintInput() {
   listenListResults();
 }
 
-//FAVORITOS //////////////
+// FAVORITOS //////////////
 
+// Añadir clase a elemento del listado de resultados que se seleccione
 function handleListResults(event) {
   console.log(event.currentTarget.id);
+  event.currentTarget.classList.toggle('selected');
 }
 
+// Recoger todos los li de los resultados con evento sobre li que se pulse
 function listenListResults() {
-  console.log('estoy dentro');
   const listResults = document.querySelectorAll('.js_list');
   for (const resultEl of listResults) {
     resultEl.addEventListener('click', handleListResults);
   }
 }
 
-//Eventos ////////////////
+// Evento búsqueda de series ////////////////
 
 butonSearch.addEventListener('click', handleSearch);

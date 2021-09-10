@@ -24,7 +24,7 @@
       //border: solid yellow;
     }
     &__name {
-      border: solid yellow;
+      //border: solid yellow;
       width: 150px;
       height: 80px;
     }
@@ -33,4 +33,9 @@
     width: 40%;
     border: solid blue;
   }
+}
+
+.selected {
+  border: solid yellow;
+  color: blue;
 }

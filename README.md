@@ -16,7 +16,7 @@ El proyecto se ha construido usándo este Kit que incluye un motor de plantillas
 [x] La información se pinta con innerHTML.
 
 [] 3. Favoritos: Una vez aparecen los resultados de búsqueda, la usuaria puede indicar cuáles son nuestras series favoritas. Al hacer clic sobre una serie pasa lo siguiente:
-[] Se añade clase de favoritos a las series seleccionadas.
+[x] Se añade clase de favoritos a las series seleccionadas.
 [] Se muestra listado en parte izquierda de la página con la selección.
 [] Las series favoritas deben seguir apareciendo a la izquierda aunque la usuaria realice otra búsqueda.
 
