@@ -4,19 +4,33 @@
   width: 100%;
 }
 
-.results {
-  background-color: lightseagreen;
-  width: 60%;
-  &__img {
-    width: 150px;
+.data {
+  display: flex;
+  flex-direction: row;
+  .results {
+    background-color: lightseagreen;
+    width: 60%;
+
+    &__container {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+    &__img {
+      width: 150px;
+    }
+    &__list {
+      list-style: none;
+      //border: solid yellow;
+    }
+    &__name {
+      border: solid yellow;
+      width: 150px;
+      height: 80px;
+    }
+  }
+  .favorites {
+    width: 40%;
+    border: solid blue;
   }
 }
-.favorites {
-  width: 40%;
-  border: solid blue;
-}
-
-// .reset__button {
-//   position: fixed;
-//   top: 0px;
-// }

@@ -30,9 +30,9 @@ function handleSearch() {
 function paintInput() {
   for (const data of globalData) {
     if (data.show.image === null) {
-      resultsContainer.innerHTML += ` <li id = "${data.show.id}"><img src="${imageDefautl} "alt=""/><h2>${data.show.name}</h2></li>`;
+      resultsContainer.innerHTML += ` <li class = "results__list" id = "${data.show.id}"><img src="${imageDefautl} "alt=""/><h2 class = "results__name">${data.show.name}</h2></li>`;
     } else {
-      resultsContainer.innerHTML += ` <li id = "${data.show.id}"><img src="${data.show.image.medium} "alt=""/><h2>${data.show.name}</h2></li>`;
+      resultsContainer.innerHTML += ` <li class = "results__list" id = "${data.show.id}"><img src="${data.show.image.medium} "alt=""/><h2 class = "results__name">${data.show.name}</h2></li>`;
     }
   }
 }

@@ -6,7 +6,19 @@ El ejercicio también tiene una parte de maquetación con HTML y Sass.
 
 # Plantilla de Proyecto: Adalab Web Started Kit
 
+[x] 1. Estructura básica:
 El proyecto se ha construido usándo este Kit que incluye un motor de plantillas HTML, el preprocesador SASS y un servidor local y muchas cosas más. El Kit ayuda a trabajar más cómodamente y automatiza tareas.
+[x] 2. Búsqueda:
+[x] Fetch: Click sobre el botón Buscar => conecta con API (búsqueda de series).
+[x] Recoger texto que introduce usuaria en el campo de búsqueda.
+[x] Por cada serie contenida en el resultado de la búsqueda se pinta una tarjeta donde mostramos una imagen de la serie y el título.
+[x] Se muestra imagen de relleno para series que no tienen imagen.
+[x] La información se pinta con innerHTML.
+
+[] 3. Favoritos: Una vez aparecen los resultados de búsqueda, la usuaria puede indicar cuáles son nuestras series favoritas. Al hacer clic sobre una serie pasa lo siguiente:
+[] Se añade clase de favoritos a las series seleccionadas.
+[] Se muestra listado en parte izquierda de la página con la selección.
+[] Las series favoritas deben seguir apareciendo a la izquierda aunque la usuaria realice otra búsqueda.
 
 ## Instalación y Guía de inicio rápido
 
