@@ -10,6 +10,7 @@ const imageDefautl =
   'https://via.placeholder.com/210x295/ffffff/666666/?text=TV';
 
 let globalData = [];
+let favorites = [];
 
 //FETCH  con llamada a pintar los li////////////////
 
@@ -43,8 +44,25 @@ function paintInput() {
 
 // Añadir clase a elemento del listado de resultados que se seleccione
 function handleListResults(event) {
-  console.log(event.currentTarget.id);
-  event.currentTarget.classList.toggle('selected');
+  //console.log(event.currentTarget.id);
+  //event.currentTarget.classList.toggle('selected');
+
+  const selectedShow = parseInt(event.currentTarget.id);
+  const clickedShow = globalData.find((data) => {
+    return data.show.id === selectedShow;
+  });
+  // si devuelve -1 no se encuentra si no devuelve la posición
+
+  const favoritesCheck = favorites.findIndex((favorite) => {
+    return favorite.show.id === selectedShow;
+  });
+  if (favoritesCheck === -1) {
+    favorites.push(clickedShow);
+  } else {
+    favorites.splice(favoritesCheck, 1);
+  }
+
+  console.log(favorites);
 }
 
 // Recoger todos los li de los resultados con evento sobre li que se pulse
