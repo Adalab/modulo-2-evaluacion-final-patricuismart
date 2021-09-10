@@ -43,15 +43,14 @@ function paintInput() {
 // FAVORITOS //////////////
 
 // Añadir clase a elemento del listado de resultados que se seleccione
-function handleListResults(event) {
-  //console.log(event.currentTarget.id);
-  //event.currentTarget.classList.toggle('selected');
 
+function handleListResults(event) {
   const selectedShow = parseInt(event.currentTarget.id);
   const clickedShow = globalData.find((data) => {
     return data.show.id === selectedShow;
   });
-  // si devuelve -1 no se encuentra si no devuelve la posición
+
+  // si devuelve -1 no esta selecionado, si no devuelve la posición
 
   const favoritesCheck = favorites.findIndex((favorite) => {
     return favorite.show.id === selectedShow;
@@ -62,10 +61,11 @@ function handleListResults(event) {
     favorites.splice(favoritesCheck, 1);
   }
 
-  console.log(favorites);
+  event.currentTarget.classList.toggle('selected');
 }
 
 // Recoger todos los li de los resultados con evento sobre li que se pulse
+
 function listenListResults() {
   const listResults = document.querySelectorAll('.js_list');
   for (const resultEl of listResults) {
