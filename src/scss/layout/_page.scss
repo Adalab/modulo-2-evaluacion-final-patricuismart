@@ -42,18 +42,21 @@
   flex-wrap: wrap;
   box-sizing: border-box;
   .results {
-    background-color: rgb(217, 231, 243);
+    background-color: rgb(217, 243, 243);
     width: 60%;
-    margin: 10px 20px 10px 20px;
+    margin: 0px 20px 10px 20px;
     border-radius: 10px;
-
+    &__tittle {
+      text-align: center;
+      color: gray;
+      padding-top: 10px;
+    }
     &__container {
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
       justify-content: space-around;
       margin: 20px;
-      text-align: center;
     }
     &__img {
       padding-top: 10px;
@@ -72,12 +75,17 @@
   }
 
   .favorites {
-    margin-left: 20px;
     width: 30%;
     border: solid rgb(174, 240, 236);
-    margin: 10px 20px 10px 20px;
-    border-radius: 10px;
     height: 50vh;
+    margin: 0px 20px 10px 20px;
+    border-radius: 10px;
+    text-align: center;
+
+    &__tittle {
+      padding-top: 10px;
+      color: rgb(20, 133, 133);
+    }
   }
 }
 

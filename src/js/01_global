@@ -29,36 +29,15 @@ function handleSearch(event) {
 
 // PINTAR
 
-// FAVORITOS //////////////
-
-function isFavorite(data) {
-  const favoritesCheck = favorites.find((favorites) => {
-    return favorites.show.id === data.show.id;
-  });
-
-  if (favoritesCheck === undefined) {
-    return false;
-  } else {
-    return true;
-  }
-}
-
-// Pintarlos li con id, imagen y nombre y clase favClass//////////////////////
+// PINTAR si son favoritos //////////////////////
 
 function paintInput() {
-  //isFavorite();
+  resultsContainer.innerHTML = '';
 
-  //let favClass = [];
-  //   const isFav = isFavorite(data);
-  //   if (isFav) {
-  //     favClass = 'favorites';
-  //   } else {
-  //     favClass = '';
-  //   }
-
+  // si la serie no tiene imagen
   for (const data of globalData) {
     if (data.show.image === null) {
-      resultsContainer.innerHTML += ` <li class = "results__list js_list " id = "${data.show.id}"><img src="${imageDefautl} "alt=""/><h2 class = "results__name">${data.show.name}</h2></li>`;
+      resultsContainer.innerHTML += ` <li class = "results__list js_list" id = "${data.show.id}"><img src="${imageDefautl} "alt=""/><h2 class = "results__name">${data.show.name}</h2></li>`;
     } else {
       resultsContainer.innerHTML += ` <li class = "results__list js_list " id = "${data.show.id}"><img src="${data.show.image.medium} "alt=""/><h2 class = "results__name">${data.show.name}</h2></li>`;
     }
@@ -84,7 +63,8 @@ function handleListResults(event) {
   } else {
     favorites.splice(favoritesCheck, 1);
   }
-
+  console.log(favoritesCheck);
+  console.log(clickedShow);
   event.currentTarget.classList.toggle('selected');
 }
 
@@ -100,3 +80,57 @@ function listenListResults() {
 // Evento búsqueda de series ////////////////
 
 butonSearch.addEventListener('click', handleSearch);
+
+// SERIES FAVORITAS ////
+
+function handleClickFav(event) {
+  debugger;
+  //identificar serie pulsada por el ID
+  const favItem = parseInt(event.currentTarget.id);
+  console.log(favItem);
+
+  //buscamos por ID
+  const getInfo = globalData.find((data) => data.show.id === favItem);
+
+  //buscar si ya está en favoritos
+
+  const alreadyFav = favoritesList.findIndex((favorite) => {
+    return favorite.show.id === favItem;
+  });
+
+  if (alreadyFav === -1) {
+    favoritesList.push(getInfo);
+  } else {
+    favoritesList = favorites.splice(alreadyFav, 1);
+  }
+  paintFavorites();
+}
+
+const favoritesSelection = document.querySelector('.js_favorites');
+let favoritesList = [];
+
+function paintFavorites() {
+  let html2 = '';
+  for (const fav of favorites) {
+    if (fav.show.image === null) {
+      html2 += ` <li id="${fav.show.id}" class="results__fav js_fav">
+      <img class="resultsfav__img js_favimage" src="${imageDefautl}" />
+      <h2 class="resultsfav__name js_favname ${fav.show.name}"></h2>
+  </li>`;
+    } else {
+      html2 += ` <li id="${fav.show.id}" class="results__fav js_fav">
+      <img class="resultsfav__img js_favimage" src="${fav.show.image.medium}" />
+      <h2 class="resultsfav__name js_favname ${fav.show.name}"></h2>
+  </li>`;
+    }
+  }
+  favoritesSelection.innerHTML = html2;
+  listenToSelectedResults();
+}
+
+function listenToSelectedResults() {
+  const allResults = document.querySelectorAll('.js_list');
+  for (const result of allResults) {
+    result.addEventListener('click', handleClickFav);
+  }
+}
