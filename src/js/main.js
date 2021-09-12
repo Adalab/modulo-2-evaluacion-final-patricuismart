@@ -123,9 +123,9 @@ function paintInput() {
 
     // si la serie no tiene imagen
     if (data.show.image === null) {
-      resultsContainer.innerHTML += ` <li class = "results__list js_list ${favClass}" id = "${data.show.id}"><img src="${imageDefautl} "alt=""/><h2 class = "results__name">${data.show.name}</h2></li>`;
+      resultsContainer.innerHTML += ` <li class = "results__list js_list ${favClass}" id = "${data.show.id}"><img class = "results__img" src="${imageDefautl} "alt=""/><h2 class = "results__name">${data.show.name}</h2></li>`;
     } else {
-      resultsContainer.innerHTML += ` <li class = "results__list js_list ${favClass}" id = "${data.show.id}"><img src="${data.show.image.medium} "alt=""/><h2 class = "results__name">${data.show.name}</h2></li>`;
+      resultsContainer.innerHTML += ` <li class = "results__list js_list ${favClass}" id = "${data.show.id}"><img class = "results__img" src="${data.show.image.medium} "alt=""/><h2 class = "results__name">${data.show.name}</h2></li>`;
     }
   }
   listenListResults();
@@ -170,9 +170,9 @@ function paintFavorites() {
   let html = '';
   for (const favorite of favorites) {
     if (favorite.show.image === null) {
-      html += `<li class = "favorites__list js_list" id = "${favorite.show.id}"><img src="${imageDefautl}"alt=""/><h2 class = "favorites__name">${favorite.show.name}></h2></li>`;
+      html += `<li class = "favorites__list js_list" id = "${favorite.show.id}"><img class="favorites__img" src="${imageDefautl}"alt=""/><h2 class = "favorites__name">${favorite.show.name}></h2></li>`;
     } else {
-      html += `<li class = "favorites__list js_list" id = "${favorite.show.id}"><img src="${favorite.show.image.medium} "alt=""/><h2 class = "favorites__name">${favorite.show.name}></h2></li>`;
+      html += `<li class = "favorites__list js_list" id = "${favorite.show.id}"><img class="favorites__img" src="${favorite.show.image.medium} "alt=""/><h2 class = "favorites__name">${favorite.show.name}></h2></li>`;
     }
   }
   // Pinto el html

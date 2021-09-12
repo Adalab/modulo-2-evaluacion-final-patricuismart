@@ -2,28 +2,29 @@
   font-family: $font-main;
   border-style: none;
   box-sizing: border-box;
+  background-color: black;
 }
 .title {
-  margin: 20px;
+  margin: 40px;
   color: rgb(80, 79, 79);
 }
 .form {
   //border: solid pink;
-  margin: 20px;
+  margin: 0px 20px 30px 40px;
   height: 10vh;
   width: 100%;
   box-sizing: border-box;
 
   &__input {
-    width: 350px;
-    border: solid 3px lightgray;
-    padding: 8px;
+    width: 450px;
+    border: solid 3px rgb(255, 255, 255);
+    padding: 10px;
     border-radius: 3px;
   }
 
   &__button {
     width: 70px;
-    background-color: rgb(4, 197, 181);
+    background-color: $button-color;
     border-radius: 5px;
     height: 35px;
     margin-left: 10px;
@@ -37,88 +38,122 @@
 }
 
 .data {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  box-sizing: border-box;
+  margin-left: 40px;
+  // display: flex;
+  // flex-direction: row;
+  // box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 30% 60%;
+  column-gap: 40px;
+
   .results {
-    background-color: rgb(217, 243, 243);
-    width: 60%;
-    margin: 0px 20px 10px 20px;
+    // background-color: rgb(217, 243, 243);
+    //margin: 0px 20px 10px 20px;
+    border: solid rgb(250, 250, 250);
     border-radius: 10px;
     &__tittle {
+      //background-color: rgb(217, 243, 243);
       text-align: center;
-      color: gray;
-      padding-top: 10px;
+      color: rgb(250, 250, 250);
+      margin-top: 10px;
+      //padding-top: 10px;
     }
     &__container {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: space-around;
+      grid-column: 2 / 3;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      justify-items: center;
       margin: 20px;
     }
     &__img {
-      padding-top: 10px;
+      //margin-top: 25px;
     }
     &__list {
       list-style: none;
+      margin-top: 25px;
       //border: solid yellow;
     }
     &__name {
       //border: solid yellow;
-      font-size: 14px;
+      font-size: 16px;
       width: 210px;
       height: 40px;
-      color: rgb(80, 79, 79);
+      text-align: center;
+      color: rgb(170, 167, 167);
     }
   }
 
   .favorites {
-    width: 30%;
-    border: solid rgb(174, 240, 236);
+    //width: 30%;
 
-    margin: 0px 20px 10px 20px;
-    border-radius: 10px;
+    border: solid rgb(174, 240, 236);
+    border-radius: 5px;
     text-align: center;
     &__container {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: space-around;
-      margin: 20px;
+      // display: flex;
+      // flex-direction: row;
+      // flex-wrap: wrap;
+      height: 150px;
+      justify-content: space-evenly;
+      grid-column: 1 / 2;
+      display: grid;
+      grid-template-columns: 140px 140px 140px;
+      grid-template-rows: 180px;
+      justify-items: center;
+      //align-items: center;
+      //margin: 20px;
     }
 
     &__list {
-      width: 105px;
-      border: solid blue;
+      //width: 105px;
+      //height: 147.5px;
+
       list-style: none;
-      height: 100px;
-      transform: scale(0.5);
+      transform: scale(0.4);
     }
 
     &__tittle {
       padding-top: 10px;
-      color: rgb(20, 133, 133);
+      color: rgb(255, 255, 255);
+    }
+    &__name {
+      padding-top: 10px;
+      color: rgb(255, 255, 255);
     }
   }
 }
 
 .selected {
-  border-radius: 15px;
+  //width: 250px;
+  //margin-bottom: 15px;
+  //padding-top: 15px;
+  border-radius: 5px;
   text-align: center;
-  width: 250px;
-  border: solid 5px lightskyblue;
-  margin-bottom: 15px;
-  padding-top: 15px;
+  border: solid 8px $aqua;
+
+  .results__name {
+    color: $aqua;
+  }
 }
+
 .reset__button {
   width: 70px;
-  background-color: rgb(4, 197, 181);
+  background-color: $button-color;
   height: 25px;
   border-radius: 5px;
   height: 35px;
   margin-left: 20px;
   color: white;
   border-style: none;
+}
+.reset__button:hover {
+  background-color: grey;
+  color: white;
+}
+ul {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 0px;
 }
