@@ -43,24 +43,6 @@ function handleSearch(event) {
   console.log(inputValue);
 }
 
-// PINTAR
-
-// PINTAR si son favoritos //////////////////////
-
-function paintInput() {
-  resultsContainer.innerHTML = '';
-
-  // si la serie no tiene imagen
-  for (const data of globalData) {
-    if (data.show.image === null) {
-      resultsContainer.innerHTML += ` <li class = "results__list js_list" id = "${data.show.id}"><img src="${imageDefautl} "alt=""/><h2 class = "results__name">${data.show.name}</h2></li>`;
-    } else {
-      resultsContainer.innerHTML += ` <li class = "results__list js_list " id = "${data.show.id}"><img src="${data.show.image.medium} "alt=""/><h2 class = "results__name">${data.show.name}</h2></li>`;
-    }
-  }
-  listenListResults();
-}
-
 function handleListResults(event) {
   const selectedShow = parseInt(event.currentTarget.id);
   const clickedShow = globalData.find((data) => {
@@ -84,11 +66,16 @@ function handleListResults(event) {
 
   // Añadir clase a elemento del listado de resultados que se seleccione
 
-  event.currentTarget.classList.toggle('selected');
+  //event.currentTarget.classList.toggle('selected');
+
+  //guardo en LS
+  setLocalStorage();
 
   // LLamada a función pintar favoritos
-
   paintFavorites();
+
+  // Rellamada a pintar resultados
+  paintInput();
 }
 
 //Me traigo todos los resultados y escucho evento
@@ -98,6 +85,50 @@ function listenListResults() {
   for (const resultEl of listResults) {
     resultEl.addEventListener('click', handleListResults);
   }
+}
+
+// Funcion que busca si ya estaba en favoritos o no
+
+function isFavorite(data) {
+  const findFavorite = favorites.find((fav) => {
+    return fav.show.id === data.show.id;
+  });
+  // si retorna undefine el elemento no es favorito = false
+
+  if (findFavorite === undefined) {
+    return false;
+
+    // si lo encuentra retorna true
+  } else {
+    return true;
+  }
+}
+// PINTAR
+
+// PINTAR si son favoritos //////////////////////
+
+function paintInput() {
+  resultsContainer.innerHTML = '';
+  let favClass = '';
+
+  // Si ya era favorito(true) le añado la clase selected, si no (false), no le añado clase
+
+  for (const data of globalData) {
+    const isFav = isFavorite(data);
+    if (isFav === true) {
+      favClass = 'selected';
+    } else {
+      favClass = '';
+    }
+
+    // si la serie no tiene imagen
+    if (data.show.image === null) {
+      resultsContainer.innerHTML += ` <li class = "results__list js_list ${favClass}" id = "${data.show.id}"><img src="${imageDefautl} "alt=""/><h2 class = "results__name">${data.show.name}</h2></li>`;
+    } else {
+      resultsContainer.innerHTML += ` <li class = "results__list js_list ${favClass}" id = "${data.show.id}"><img src="${data.show.image.medium} "alt=""/><h2 class = "results__name">${data.show.name}</h2></li>`;
+    }
+  }
+  listenListResults();
 }
 
 ////// SERIES FAVORITAS /////
