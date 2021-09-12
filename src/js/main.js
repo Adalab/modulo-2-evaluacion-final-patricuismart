@@ -124,19 +124,19 @@ function handleListFavResults(event) {
 
   //llamada a funciones volver a pintar series y pintar favoritos
   paintFavorites();
-  //paintInput();
+  paintInput();
 }
 
 function listenListFavResults() {
-  console.log('imin2');
   const listFavResults = document.querySelectorAll('.js_list');
   for (const resultFavEl of listFavResults)
     resultFavEl.addEventListener('click', handleListFavResults);
 }
 
+//Función para pintar series en columna favoritas
+
 function paintFavorites() {
   let html = '';
-  console.log('imin');
   for (const favorite of favorites) {
     if (favorite.show.image === null) {
       html += `<li class = "favorites__list js_list" id = "${favorite.show.id}"><img src="${imageDefautl}"alt=""/><h2 class = "favorites__name">${favorite.show.name}></h2></li>`;
@@ -144,11 +144,15 @@ function paintFavorites() {
       html += `<li class = "favorites__list js_list" id = "${favorite.show.id}"><img src="${favorite.show.image.medium} "alt=""/><h2 class = "favorites__name">${favorite.show.name}></h2></li>`;
     }
   }
+  // Pinto el html
+
   favoritesContainer.innerHTML = html;
+
+  // guardo series favoritas en LS
   setLocalStorage();
 }
 
-//////////////// LOCAL STORAGE /////////
+//LOCAL STORAGE  almacenamiento de favoritos al recagar página/////////
 
 function setLocalStorage() {
   localStorage.setItem('selected', JSON.stringify(favorites));
@@ -165,7 +169,8 @@ function getLocalStorage() {
 
 // RESET ///////
 
-function resetLS() {
+function handleReset(event) {
+  event.preventDefault();
   //vaciamos el array de favoritos
   favorites = [];
   //limpiamos LocalStorage
@@ -180,4 +185,4 @@ butonSearch.addEventListener('click', handleSearch);
 
 // Evento Reset ////////////////
 
-butonReset.addEventListener('click', resetLS);
+butonReset.addEventListener('click', handleReset);
