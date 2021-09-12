@@ -18,6 +18,12 @@ let globalData = [];
 // meter info de (arrays) de las series favoritas
 let favorites = [];
 
+// Recuperamos datos si tenemos series favoritas seleccionadas
+
+if (localStorage.getItem('selected') !== null) {
+  getLocalStorage();
+}
+
 // funcion búsqueda con llamada a pintar los li////////////////
 
 function handleSearch(event) {
@@ -52,7 +58,6 @@ function paintInput() {
   }
   listenListResults();
 }
-// Añadir clase a elemento del listado de resultados que se seleccione
 
 function handleListResults(event) {
   const selectedShow = parseInt(event.currentTarget.id);
@@ -74,10 +79,17 @@ function handleListResults(event) {
 
   console.log(favorites);
   console.log(favoritesCheck);
+
+  // Añadir clase a elemento del listado de resultados que se seleccione
+
   event.currentTarget.classList.toggle('selected');
+
+  // LLamada a función pintar favoritos
 
   paintFavorites();
 }
+
+//Me traigo todos los resultados y escucho evento
 
 function listenListResults() {
   const listResults = document.querySelectorAll('.js_list');
@@ -92,6 +104,7 @@ butonSearch.addEventListener('click', handleSearch);
 ////// SERIES FAVORITAS /////
 
 function handleListFavResults(event) {
+  debugger;
   const selectedFavShow = parseInt(event.currentTarget.id);
   const clickedFavShow = globalData.find((data) => {
     return data.show.id === selectedFavShow;
@@ -107,6 +120,12 @@ function handleListFavResults(event) {
   } else {
     favorites.splice(favoritesFavCheck, 1);
   }
+  //guardo en LS
+  setLocalStorage();
+
+  //llamada a funciones volver a pintar series y pintar favoritos
+  paintFavorites();
+  //paintInput();
 }
 
 function listenListFavResults() {
@@ -121,10 +140,26 @@ function paintFavorites() {
   console.log('imin');
   for (const favorite of favorites) {
     if (favorite.show.image === null) {
-      html += `<li class = "results__list js_list" id = "${favorite.show.id}"><img src="${imageDefautl}"alt=""/><h2 class = "results__name">${favorite.show.name}></h2></li>`;
+      html += `<li class = "favorites__list js_list" id = "${favorite.show.id}"><img src="${imageDefautl}"alt=""/><h2 class = "favorites__name">${favorite.show.name}></h2></li>`;
     } else {
-      html += `<li class = "results__list js_list" id = "${favorite.show.id}"><img src="${favorite.show.image.medium} "alt=""/><h2 class = "results__name">${favorite.show.name}></h2></li>`;
+      html += `<li class = "favorites__list js_list" id = "${favorite.show.id}"><img src="${favorite.show.image.medium} "alt=""/><h2 class = "favorites__name">${favorite.show.name}></h2></li>`;
     }
   }
   favoritesContainer.innerHTML = html;
+  setLocalStorage();
+}
+
+//////////////// LOCAL STORAGE /////////
+
+function setLocalStorage() {
+  localStorage.setItem('selected', JSON.stringify(favorites));
+}
+
+function getLocalStorage() {
+  //Se recupera el array de favoritos almacenado en localStorage
+  favorites = JSON.parse(localStorage.getItem('selected'));
+  //Se pinta favoritos con lo almacenado localStorage
+  paintFavorites();
+  //Se pintan los resultados
+  //paintInput();
 }
