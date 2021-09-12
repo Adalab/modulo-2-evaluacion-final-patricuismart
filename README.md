@@ -18,10 +18,10 @@ El proyecto se ha construido usándo este Kit que incluye un motor de plantillas
 [x] 3. Favoritos: Una vez aparecen los resultados de búsqueda, la usuaria puede indicar cuáles son nuestras series favoritas. Al hacer clic sobre una serie pasa lo siguiente:
 [x] Se añade clase de favoritos a las series seleccionadas.
 [x] Se muestra listado en parte izquierda de la página con la selección.
-[] Las series favoritas deben seguir apareciendo a la izquierda aunque la usuaria realice otra búsqueda.
+[x] Las series favoritas deben seguir apareciendo a la izquierda aunque la usuaria realice otra búsqueda.
 
-[] 4. Almacenamiento local
-[]Almacenar el listado de favoritos en el localStorage. De esta forma, al recargar la página el listado de favoritos se muestra.
+[x] 4. Almacenamiento local
+[x]Almacenar el listado de favoritos en el localStorage. De esta forma, al recargar la página el listado de favoritos se muestra.
 
 ## Instalación y Guía de inicio rápido
 
