@@ -9,6 +9,8 @@ const butonSearch = document.querySelector('.js_button');
 const resultsContainer = document.querySelector('.js_results');
 // ul donde se pintan favoritos
 const favoritesContainer = document.querySelector('.js_favorites');
+//botón rest
+const butonReset = document.querySelector('.js_reset');
 //para cuando no hay imagen
 const imageDefautl =
   'https://via.placeholder.com/210x295/ffffff/666666/?text=TV';
@@ -97,9 +99,6 @@ function listenListResults() {
     resultEl.addEventListener('click', handleListResults);
   }
 }
-// Evento búsqueda de series ////////////////
-
-butonSearch.addEventListener('click', handleSearch);
 
 ////// SERIES FAVORITAS /////
 
@@ -163,3 +162,22 @@ function getLocalStorage() {
   //Se pintan los resultados
   //paintInput();
 }
+
+// RESET ///////
+
+function resetLS() {
+  //vaciamos el array de favoritos
+  favorites = [];
+  //limpiamos LocalStorage
+  localStorage.clear();
+  //recargar la página después de borrar
+  location.reload();
+}
+
+// Evento búsqueda de series ////////////////
+
+butonSearch.addEventListener('click', handleSearch);
+
+// Evento Reset ////////////////
+
+butonReset.addEventListener('click', resetLS);
