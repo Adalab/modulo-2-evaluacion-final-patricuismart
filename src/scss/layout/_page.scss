@@ -17,9 +17,16 @@
 
   &__input {
     width: 450px;
-    border: solid 3px rgb(255, 255, 255);
+    border: solid 3px $aqua;
     padding: 10px;
     border-radius: 3px;
+    color: white;
+    ::placeholder {
+      color: white;
+    }
+    ::value {
+      color: white;
+    }
   }
 
   &__button {
@@ -86,7 +93,7 @@
   .favorites {
     //width: 30%;
 
-    border: solid rgb(174, 240, 236);
+    border: solid lightpink;
     border-radius: 5px;
     text-align: center;
     &__container {
@@ -114,7 +121,7 @@
 
     &__tittle {
       padding-top: 10px;
-      color: rgb(255, 255, 255);
+      color: lightpink;
     }
     &__name {
       padding-top: 10px;
