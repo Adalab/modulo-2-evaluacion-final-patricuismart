@@ -6,7 +6,7 @@
 }
 .title {
   margin: 40px;
-  color: rgb(80, 79, 79);
+  color: $dark-grey;
 }
 .form {
   //border: solid pink;
@@ -20,12 +20,12 @@
     border: solid 3px $aqua;
     padding: 10px;
     border-radius: 3px;
-    color: white;
+    color: $white;
     ::placeholder {
-      color: white;
+      color: $white;
     }
     ::value {
-      color: white;
+      color: $white;
     }
   }
 
@@ -35,7 +35,7 @@
     border-radius: 5px;
     height: 35px;
     margin-left: 10px;
-    color: white;
+    color: $white;
     border-style: none;
     cursor: pointer;
   }
@@ -55,16 +55,13 @@
   column-gap: 40px;
 
   .results {
-    // background-color: rgb(217, 243, 243);
-    //margin: 0px 20px 10px 20px;
-    border: solid rgb(250, 250, 250);
+    border: solid $white;
     border-radius: 10px;
     &__tittle {
-      //background-color: rgb(217, 243, 243);
+      background-color: $white;
       text-align: center;
-      color: rgb(250, 250, 250);
-      margin-top: 10px;
-      //padding-top: 10px;
+      color: $dark-grey;
+      padding: 10px;
     }
     &__container {
       grid-column: 2 / 3;
@@ -73,9 +70,7 @@
       justify-items: center;
       margin: 20px;
     }
-    &__img {
-      //margin-top: 25px;
-    }
+
     &__list {
       list-style: none;
       margin-top: 25px;
@@ -101,7 +96,6 @@
     }
 
     &__list {
-      border: solid yellow;
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
@@ -113,35 +107,31 @@
 
       .fas {
         text-align: center;
-        width: 150px;
-        height: 150px;
-        color: aqua;
-        border: solid white;
-        padding: 20px;
+        color: $lightpink-color;
         text-align: center;
         cursor: pointer;
-        z-index: 3;
+        transform: scale(2);
       }
     }
 
     &__tittle {
       padding: 10px;
-      margin: 20px;
-      color: $lightpink-color;
+      color: $dark-grey;
+      background-color: $lightpink-color;
     }
     &__name {
-      padding-top: 10px;
-      color: rgb(255, 255, 255);
-      font-size: 30px;
       color: $lightpink-color;
+      font-size: 20px;
+      color: $lightpink-color;
+    }
+    &__img {
+      height: 25%;
+      width: 25%;
     }
   }
 }
 
 .selected {
-  //width: 250px;
-  //margin-bottom: 15px;
-  //padding-top: 15px;
   border-radius: 5px;
   text-align: center;
   border: solid 8px $aqua;

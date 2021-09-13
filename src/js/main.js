@@ -64,10 +64,6 @@ function handleListResults(event) {
   console.log(favorites);
   console.log(favoritesCheck);
 
-  // Añadir clase a elemento del listado de resultados que se seleccione
-
-  //event.currentTarget.classList.toggle('selected');
-
   //guardo en LS
   setLocalStorage();
 
@@ -142,20 +138,13 @@ function paintInput() {
 
 function handleListFavResults(event) {
   const selectedFavShow = parseInt(event.currentTarget.id);
-  // const clickedFavShow = favorites.find((data) => {
-  //   return data.show.id === selectedFavShow;
-  // });
-
-  // si devuelve -1 no esta selecionado, si no devuelve la posición
   console.log(selectedFavShow);
   const favoritesFavCheck = favorites.findIndex((favorite) => {
     return favorite.show.id === selectedFavShow;
   });
-  // if (favoritesFavCheck === -1) {
-  //   favorites.push(clickedFavShow);
-  // } else {
+  // borrar de series favoritas
   favorites.splice(favoritesFavCheck, 1);
-  //}
+
   //guardo en LS
   setLocalStorage();
 
@@ -165,7 +154,7 @@ function handleListFavResults(event) {
 }
 
 function listenListFavResults() {
-  const listFavResults = document.querySelectorAll('.js_listfav');
+  const listFavResults = document.querySelectorAll('.js_icon');
   for (const resultFavEl of listFavResults)
     resultFavEl.addEventListener('click', handleListFavResults);
 }
@@ -179,14 +168,13 @@ function paintFavorites() {
       html2 += `<li class = "favorites__list js_listfav" id = "${favorite.show.id}">`;
       html2 += `<img class="favorites__img" src="${imageDefautl}"alt=""/>`;
       html2 += `<h2 class = "favorites__name">${favorite.show.name}</h2>`;
-      html2 += `<i class="fas fa-times-circle" id = "${favorite.show.id}"></i>`;
+      html2 += `<i class="fas fa-times-circle js_icon" id = "${favorite.show.id}"></i>`;
       html2 += `</li>`;
     } else {
       html2 += `<li class = "favorites__list js_listfav" id = "${favorite.show.id}">`;
       html2 += `<img class="favorites__img" src="${favorite.show.image.medium} "alt=""/>`;
       html2 += `<h2 class = "favorites__name">${favorite.show.name}</h2>`;
-
-      html2 += `<i class="fas fa-times-circle" id = "${favorite.show.id}"></i>`;
+      html2 += `<i class="fas fa-times-circle js_icon" id = "${favorite.show.id}"></i>`;
       html2 += `</li>`;
     }
   }
