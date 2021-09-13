@@ -108,7 +108,7 @@ function isFavorite(data) {
 // PINTAR si son favoritos //////////////////////
 
 function paintInput() {
-  resultsContainer.innerHTML = '';
+  let html = '';
   let favClass = '';
 
   // Si ya era favorito(true) le añado la clase selected, si no (false), no le añado clase
@@ -123,16 +123,17 @@ function paintInput() {
 
     // si la serie no tiene imagen
     if (data.show.image === null) {
-      resultsContainer.innerHTML += `<li class = "results__list js_list ${favClass}" id = "${data.show.id}">`;
+      html += `<li class = "results__list js_list ${favClass}" id = "${data.show.id}">`;
       html += `<img class = "results__img" src="${imageDefautl} "alt=""/>`;
       html += `<h2 class = "results__name">${data.show.name}</h2>`;
       html += `</li>`;
     } else {
-      resultsContainer.innerHTML += `<li class = "results__list js_list ${favClass}" id = "${data.show.id}">`;
+      html += `<li class = "results__list js_list ${favClass}" id = "${data.show.id}">`;
       html += `<img class = "results__img" src="${data.show.image.medium} "alt=""/>`;
       html += `<h2 class = "results__name">${data.show.name}</h2>`;
       html += `</li>`;
     }
+    resultsContainer.innerHTML = html;
   }
   listenListResults();
 }
@@ -173,23 +174,23 @@ function listenListFavResults() {
 //Función para pintar series en columna favoritas
 
 function paintFavorites() {
-  let html = '';
+  let html2 = '';
   for (const favorite of favorites) {
     if (favorite.show.image === null) {
-      html += `<li class = "favorites__list js_list" id = "${favorite.show.id}">`;
-      html += `<img class="favorites__img" src="${imageDefautl}"alt=""/>`;
-      html += `<h2 class = "favorites__name">${favorite.show.name}></h2>`;
-      html += `</li>`;
+      html2 += `<li class = "favorites__list js_list" id = "${favorite.show.id}">`;
+      html2 += `<img class="favorites__img" src="${imageDefautl}"alt=""/>`;
+      html2 += `<h2 class = "favorites__name">${favorite.show.name}></h2>`;
+      html2 += `</li>`;
     } else {
-      html += `<li class = "favorites__list js_list" id = "${favorite.show.id}">`;
-      html += `<img class="favorites__img" src="${favorite.show.image.medium} "alt=""/>`;
-      html += `<h2 class = "favorites__name">${favorite.show.name}></h2>`;
-      html += `</li>`;
+      html2 += `<li class = "favorites__list js_list" id = "${favorite.show.id}">`;
+      html2 += `<img class="favorites__img" src="${favorite.show.image.medium} "alt=""/>`;
+      html2 += `<h2 class = "favorites__name">${favorite.show.name}></h2>`;
+      html2 += `</li>`;
     }
   }
   // Pinto el html
 
-  favoritesContainer.innerHTML = html;
+  favoritesContainer.innerHTML = html2;
 
   // guardo series favoritas en LS
   setLocalStorage();
