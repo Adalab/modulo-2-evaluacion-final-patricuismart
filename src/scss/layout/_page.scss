@@ -27,6 +27,7 @@
     ::value {
       color: $white;
     }
+    //@media all and (min-width: 768px){}
   }
 
   &__button {
@@ -78,11 +79,12 @@
     }
     &__name {
       //border: solid yellow;
-      font-size: 16px;
+      font-size: 18px;
       width: 210px;
       height: 40px;
       text-align: center;
       color: rgb(170, 167, 167);
+      padding-top: 5px;
     }
   }
 
@@ -93,6 +95,7 @@
     &__container {
       display: flex;
       flex-direction: column;
+      width: 95%;
     }
 
     &__list {
@@ -101,7 +104,7 @@
       flex-wrap: wrap;
       align-items: center;
       justify-content: space-around;
-      margin-top: 20px;
+      margin: 20px 0 10px 0;
       list-style: none;
       //transform: scale(0.4);
 
@@ -120,9 +123,11 @@
       background-color: $lightpink-color;
     }
     &__name {
+      text-align: start;
       color: $lightpink-color;
-      font-size: 20px;
+      font-size: 18px;
       color: $lightpink-color;
+      width: 180px;
     }
     &__img {
       height: 25%;
