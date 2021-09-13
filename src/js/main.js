@@ -141,22 +141,21 @@ function paintInput() {
 ////// SERIES FAVORITAS /////
 
 function handleListFavResults(event) {
-  debugger;
   const selectedFavShow = parseInt(event.currentTarget.id);
-  const clickedFavShow = globalData.find((data) => {
-    return data.show.id === selectedFavShow;
-  });
+  // const clickedFavShow = favorites.find((data) => {
+  //   return data.show.id === selectedFavShow;
+  // });
 
   // si devuelve -1 no esta selecionado, si no devuelve la posición
-
+  console.log(selectedFavShow);
   const favoritesFavCheck = favorites.findIndex((favorite) => {
     return favorite.show.id === selectedFavShow;
   });
-  if (favoritesFavCheck === -1) {
-    favorites.push(clickedFavShow);
-  } else {
-    favorites.splice(favoritesFavCheck, 1);
-  }
+  // if (favoritesFavCheck === -1) {
+  //   favorites.push(clickedFavShow);
+  // } else {
+  favorites.splice(favoritesFavCheck, 1);
+  //}
   //guardo en LS
   setLocalStorage();
 
@@ -166,7 +165,7 @@ function handleListFavResults(event) {
 }
 
 function listenListFavResults() {
-  const listFavResults = document.querySelectorAll('.js_list');
+  const listFavResults = document.querySelectorAll('.js_listfav');
   for (const resultFavEl of listFavResults)
     resultFavEl.addEventListener('click', handleListFavResults);
 }
@@ -177,20 +176,26 @@ function paintFavorites() {
   let html2 = '';
   for (const favorite of favorites) {
     if (favorite.show.image === null) {
-      html2 += `<li class = "favorites__list js_list" id = "${favorite.show.id}">`;
+      html2 += `<li class = "favorites__list js_listfav" id = "${favorite.show.id}">`;
       html2 += `<img class="favorites__img" src="${imageDefautl}"alt=""/>`;
-      html2 += `<h2 class = "favorites__name">${favorite.show.name}></h2>`;
+      html2 += `<h2 class = "favorites__name">${favorite.show.name}</h2>`;
+      html2 += `<i class="fas fa-times-circle" id = "${favorite.show.id}"></i>`;
       html2 += `</li>`;
     } else {
-      html2 += `<li class = "favorites__list js_list" id = "${favorite.show.id}">`;
+      html2 += `<li class = "favorites__list js_listfav" id = "${favorite.show.id}">`;
       html2 += `<img class="favorites__img" src="${favorite.show.image.medium} "alt=""/>`;
-      html2 += `<h2 class = "favorites__name">${favorite.show.name}></h2>`;
+      html2 += `<h2 class = "favorites__name">${favorite.show.name}</h2>`;
+
+      html2 += `<i class="fas fa-times-circle" id = "${favorite.show.id}"></i>`;
       html2 += `</li>`;
     }
   }
   // Pinto el html
 
   favoritesContainer.innerHTML = html2;
+
+  //llamada a funcion escucha fav
+  listenListFavResults();
 
   // guardo series favoritas en LS
   setLocalStorage();
